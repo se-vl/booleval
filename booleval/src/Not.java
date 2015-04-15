@@ -11,4 +11,10 @@ class Not implements Expression
     {
         return _x;
     }
+
+    @Override
+    public String infixForm()
+    {
+        return "!(" + _x.infixForm() + ")";
+    }
 }

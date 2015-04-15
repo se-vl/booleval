@@ -18,4 +18,10 @@ class And implements Expression
     {
         return _y;
     }
+
+    @Override
+    public String infixForm()
+    {
+        return "(" + _x.infixForm() + " && " + _y.infixForm() + ")";
+    }
 }

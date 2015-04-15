@@ -41,34 +41,6 @@ class REPL
     private void processLine()
     {
         Expression expression = _parser.parse(_line);
-        System.out.println(infixForm(expression));
-    }
-
-    private String infixForm(Expression expression)
-    {
-        if (expression instanceof A)
-        {
-            return "a";
-        }
-        else if (expression instanceof B)
-        {
-            return "b";
-        }
-        else if (expression instanceof Not)
-        {
-            Not not = (Not) expression;
-            return "!(" + infixForm(not.x()) + ")";
-        }
-        else if (expression instanceof And)
-        {
-            And and = (And) expression;
-            return "(" + infixForm(and.x()) + " && " + infixForm(and.y()) +")";
-        }
-        else if (expression instanceof Or)
-        {
-            Or or = (Or) expression;
-            return "(" + infixForm(or.x()) + " || " + infixForm(or.y()) + ")";
-        }
-        return "?";
+        System.out.println(expression.infixForm());
     }
 }
