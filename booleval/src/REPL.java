@@ -57,17 +57,17 @@ class REPL
         else if (expression instanceof Not)
         {
             Not not = (Not) expression;
-            return "!" + infixForm(not.x());
+            return "!(" + infixForm(not.x()) + ")";
         }
         else if (expression instanceof And)
         {
             And and = (And) expression;
-            return infixForm(and.x()) + " && " + infixForm(and.y());
+            return "(" + infixForm(and.x()) + " && " + infixForm(and.y()) +")";
         }
         else if (expression instanceof Or)
         {
             Or or = (Or) expression;
-            return infixForm(or.x()) + " || " + infixForm(or.y());
+            return "(" + infixForm(or.x()) + " || " + infixForm(or.y()) + ")";
         }
         return "?";
     }
