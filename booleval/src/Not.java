@@ -4,7 +4,15 @@ class Not implements Expression
 
     public Not(Expression x)
     {
-        _x = x;
+        if (x instanceof A || x instanceof B || x instanceof Klammern
+                || x instanceof Not)
+        {
+            _x = x;
+        }
+        else
+        {
+            _x = new Klammern(x);
+        }
     }
 
     public Expression x()
@@ -15,6 +23,6 @@ class Not implements Expression
     @Override
     public String infixForm()
     {
-        return "!(" + _x.infixForm() + ")";
+        return "!" + _x.infixForm();
     }
 }

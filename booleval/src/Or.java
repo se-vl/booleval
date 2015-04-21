@@ -5,8 +5,24 @@ class Or implements Expression
 
     public Or(Expression x, Expression y)
     {
-        _x = x;
-        _y = y;
+        if (x instanceof A || x instanceof B || x instanceof Klammern
+                || x instanceof Or)
+        {
+            _x = x;
+        }
+        else
+        {
+            _x = new Klammern(x);
+        }
+        if (x instanceof A || x instanceof B || x instanceof Klammern
+                || x instanceof Or)
+        {
+            _y = y;
+        }
+        else
+        {
+            _y = new Klammern(y);
+        }
     }
 
     public Expression x()
@@ -22,6 +38,6 @@ class Or implements Expression
     @Override
     public String infixForm()
     {
-        return "(" + _x.infixForm() + " || " + _y.infixForm() + ")";
+        return _x.infixForm() + " || " + _y.infixForm();
     }
 }
