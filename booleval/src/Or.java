@@ -22,6 +22,6 @@ class Or implements Expression
     @Override
     public String infixForm()
     {
-        return "(" + _x.infixForm() + " || " + _y.infixForm() + ")";
+        return _x.infixForm() + " || " + _y.infixForm();
     }
 }

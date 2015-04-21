@@ -15,6 +15,10 @@ class Not implements Expression
     @Override
     public String infixForm()
     {
+    	if(_x instanceof A || _x instanceof B)
+    	{
+    		return "!" + _x.infixForm();
+    	}
         return "!(" + _x.infixForm() + ")";
     }
 }
