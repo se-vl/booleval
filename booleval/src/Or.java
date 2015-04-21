@@ -22,6 +22,25 @@ class Or implements Expression
     @Override
     public String infixForm()
     {
-        return "(" + _x.infixForm() + " || " + _y.infixForm() + ")";
+        return _x.infixFormSuitableFor(20) + " || " + _y.infixFormSuitableFor(20);
+    }
+
+    @Override
+    public int precedence()
+    {
+        return 20;
+    }
+
+    @Override
+    public String infixFormSuitableFor(int surroundingPrecedence)
+    {
+        if (surroundingPrecedence < 20)
+        {
+            return "(" + infixForm() + ")";
+        }
+        else
+        {
+            return infixForm();
+        }
     }
 }

@@ -15,6 +15,18 @@ class Not implements Expression
     @Override
     public String infixForm()
     {
-        return "!(" + _x.infixForm() + ")";
+        return "!" + _x.infixFormSuitableFor(0);
+    }
+
+    @Override
+    public int precedence()
+    {
+        return 0;
+    }
+
+    @Override
+    public String infixFormSuitableFor(int surroundingPrecedence)
+    {
+        return infixForm();
     }
 }

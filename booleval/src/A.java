@@ -5,4 +5,16 @@ class A implements Expression
     {
         return "a";
     }
+
+    @Override
+    public int precedence()
+    {
+        return 0;
+    }
+
+    @Override
+    public String infixFormSuitableFor(int surroundingPrecedence)
+    {
+        return infixForm();
+    }
 }

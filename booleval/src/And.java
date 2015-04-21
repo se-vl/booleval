@@ -22,6 +22,25 @@ class And implements Expression
     @Override
     public String infixForm()
     {
-        return "(" + _x.infixForm() + " && " + _y.infixForm() + ")";
+        return _x.infixFormSuitableFor(10) + " && " + _y.infixFormSuitableFor(10);
+    }
+
+    @Override
+    public int precedence()
+    {
+        return 10;
+    }
+
+    @Override
+    public String infixFormSuitableFor(int surroundingPrecedence)
+    {
+        if (surroundingPrecedence < 10)
+        {
+            return "(" + infixForm() + ")";
+        }
+        else
+        {
+            return infixForm();
+        }
     }
 }
