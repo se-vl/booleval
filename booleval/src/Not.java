@@ -17,16 +17,4 @@ class Not extends SimpleExpression
     {
         return "!" + _x.infixFormSuitableFor(0);
     }
-
-    @Override
-    public int precedence()
-    {
-        return 0;
-    }
-
-    @Override
-    public String infixFormSuitableFor(int surroundingPrecedence)
-    {
-        return infixForm();
-    }
 }
