@@ -1,4 +1,4 @@
-class Not implements Expression
+class Not extends SimpleExpression
 {
     private final Expression _x;
 
